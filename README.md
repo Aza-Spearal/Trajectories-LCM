@@ -21,7 +21,7 @@ Use the evaluation script to assess the performance of a trained model.
 We use two complementary evaluation approaches:
 
 **Vector Similarity with SONAR**  
-The model’s output is compared to the corresponding SONAR vector. However, while vectors may appear similar, the generated text could differ significantly from the target text.
+The model’s output is compared to the corresponding SONAR vector. However, while vectors may appear similar, the generated text could differ from the target text.
 
 **Vector Similarity with Jasper**  
 To address this, we decode the model’s output into text, then re-encode it using infgrad/jasper_en_vision_language_v1, a robust sentence embedding model. We compare this encoding to the Jasper embedding of the target text to better assess semantic similarity.
