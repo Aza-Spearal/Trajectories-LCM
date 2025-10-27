@@ -2,7 +2,7 @@ Here is the code associated with the article [https://github.com/Aza-Spearal/les
 
 To execute it, you will need a text dataset and the Large Concept Model (LCM) repository, available at: https://github.com/facebookresearch/large_concept_model.
 
-Replace the builder.py and archs.py files with the corresponding versions from the large_concept_model/lcm/models/base_lcm/ directory.
+Replace the builder.py and archs.py files with the corresponding files from the large_concept_model/lcm/models/base_lcm/ directory.
 
 ### Workflow
 
