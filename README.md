@@ -1,4 +1,4 @@
-Here is the code associated with the article [https://github.com/Aza-Spearal/lesswrong-posts_temporary/blob/main/using_lcms_to_monitor_llms.pdf]
+Here is the code associated with the post [https://github.com/Aza-Spearal/lesswrong-posts_temporary/blob/main/using_lcms_to_monitor_llms.pdf]
 
 To execute it, you will need a text dataset and the Large Concept Model (LCM) repository, available at: https://github.com/facebookresearch/large_concept_model.
 
