@@ -15,7 +15,7 @@ This project explores the use of **Large Concept Models (LCMs)** to monitor and 
 
 ### 1. Dataset Preparation
 
-Use the `databuilder` script to generate the dataset required for training and evaluation.
+Use the `databuilder.py` script to generate the dataset required for training and evaluation.
 
 ---
 
@@ -81,19 +81,3 @@ This notebook contains all necessary steps for evaluation and analysis.
 ## 📎 Notes
 
 - Ensure that `wandb` is properly configured before launching training scripts.
-- Some scripts may require significant computational resources depending on the model configuration.
-
----
-
-## 🚀 Getting Started
-
-1. Prepare the dataset using the `databuilder`
-2. Choose a training script based on your setup
-3. (Optional) Configure the original LCM repository if using the full model
-4. Run control experiments for evaluation
-
----
-
-## 📄 License
-
-Refer to the respective repositories and dependencies for licensing details.
