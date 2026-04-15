@@ -1,27 +1,22 @@
 Here is the code associated with the post [https://github.com/Aza-Spearal/lesswrong-posts_temporary/blob/main/using_lcms_to_monitor_llms.pdf]
 
-To execute it, you will need a text dataset and the Large Concept Model (LCM) repository, available at: https://github.com/facebookresearch/large_concept_model.
+llama_lora_wandb.py correspond to Llama LoRA
 
-Replace the builder.py and archs.py files with the corresponding files from the large_concept_model/lcm/models/base_lcm/ directory.
+Base_LCM_scratch_wandb.py correspond to Re-implemented Base-LCM
+
+Base_LCM_full_wandb.py correspond to original Base-LCM model.
+
+To execute the last one, you will need the Large Concept Model (LCM) repository, available at: https://github.com/facebookresearch/large_concept_model. You should modify 2 files in large_concept_model/lcm/models/base_lcm.
+Replace the archs.py in the original LCM repository by the one provide here. You should also modify the line max_seq_len: int = 2048 by max_seq_len: int = 20 of the file builder.py.
 
 ### Workflow
 
 **Dataset Preparation**  
-Use the dataset_builder script to create the required dataset.
+Use the databuilder script to create the required dataset.
 
 **Model Training**  
-Run the LCM_sweep script to initiate a Weights & Biases (wandb) sweep using the LCM models.
+You can either use llama_lora_wandb.py, Base_LCM_scratch_wandb.py, Base_LCM_full_wandb.py to initiate a Weights & Biases (wandb) sweep and train model.
 
-**Evaluation**  
-Use the evaluation script to assess the performance of a trained model.
+### Control Experiemnts
 
-
-### Evaluation Methods
-
-We use two complementary evaluation approaches:
-
-**Vector Similarity with SONAR**  
-The model’s output is compared to the corresponding SONAR vector. However, while vectors may appear similar, the generated text could differ from the target text.
-
-**Vector Similarity with Jasper**  
-To address this, we decode the model’s output into text, then re-encode it using infgrad/jasper_en_vision_language_v1, a robust sentence embedding model. We compare this encoding to the Jasper embedding of the target text to better assess semantic similarity.
+You only have to run the control_experiments.ipynb file.
