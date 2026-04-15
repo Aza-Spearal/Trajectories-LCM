@@ -25,7 +25,7 @@ def base_lcm_1_6B() -> BaseLCModelConfig:
     """Base 1.6B model
     Parameter Size: 1,647,635,456
     """
-    model_dim: int = 1024 #2048
+    model_dim: int = 2048
     num_attn_heads: int = 16
     return BaseLCModelConfig(
         max_seq_len=20, #4096,
@@ -40,7 +40,7 @@ def base_lcm_1_6B() -> BaseLCModelConfig:
             mha_output_proj_bias=True,
             ffn_inner_dim=model_dim * 4,
             num_attn_heads=num_attn_heads,
-            num_layers= 16, #32,
+            num_layers=32,
             pos_embedding_style="rope",
             use_swiglu=True,
             layer_normalization_style="rms",
@@ -63,11 +63,9 @@ def base_lcm_max(config) -> BaseLCModelConfig:
             attention_dropout_p=0.0,
             dropout_p=0.1,
             mha_output_proj_bias=True,
-            #ffn_inner_dim=model_dim * config.lcm_ffn_inner_dim,
-            ffn_inner_dim=model_dim * config.model_arch[0],
+            ffn_inner_dim=model_dim * config.lcm_ffn_inner_dim,
             num_attn_heads=num_attn_heads,
-            #num_layers=config.lcm_num_layers,
-            num_layers=config.model_arch[1],
+            num_layers=config.lcm_num_layers,
             pos_embedding_style="rope",
             use_swiglu=True,
             layer_normalization_style = "rms",
@@ -90,11 +88,9 @@ def base_lcm_max_ray(config) -> BaseLCModelConfig:
             attention_dropout_p=0.0,
             dropout_p=0.1,
             mha_output_proj_bias=True,
-            #ffn_inner_dim=model_dim * config.lcm_ffn_inner_dim,
-            ffn_inner_dim=model_dim * config['model_arch'][1],
+            ffn_inner_dim=model_dim * config['lcm_ffn_inner_dim'],
             num_attn_heads=num_attn_heads,
-            #num_layers=config.lcm_num_layers,
-            num_layers=config['model_arch'][0],
+            num_layers=config['lcm_num_layers'],
             pos_embedding_style="rope",
             use_swiglu=True,
             layer_normalization_style = "rms",
@@ -110,8 +106,7 @@ def base_lcm_tuner(config) -> BaseLCModelConfig:
         max_seq_len=20,
         sonar_embed_dim=1024,
         model_dim=model_dim,
-        #sonar_normalizer_name=config.sonar_normalizer_name,
-        sonar_normalizer_name=None if config.sonar_normalizer_name != "dummy_sonar_normalizer" else "dummy_sonar_normalizer",
+        sonar_normalizer_name="dummy_sonar_normalizer",
         frontend=LCMFrontendConfig(
             dropout_p=config.frontend_dropout_p,
             pre_linear_init_fn = config.frontend_pre_linear_init_fn,
@@ -128,7 +123,6 @@ def base_lcm_tuner(config) -> BaseLCModelConfig:
             pos_embedding_style=config.lcm_pos_embedding_style,
             use_swiglu=config.lcm_use_swiglu,
             ffn_inner_activation_name = 'relu' if config.lcm_use_swiglu else config.lcm_ffn_inner_activation_name,
-            layer_normalization_style = config.lcm_layer_normalization_style,
             norm_order_style = config.lcm_norm_order_style,
             final_norm_order_style = config.lcm_final_norm_order_style,
             enable_qk_layernorm = config.lcm_enable_qk_layernorm,
