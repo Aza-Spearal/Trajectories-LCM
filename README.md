@@ -1,7 +1,7 @@
 # Using LCMs to Monitor LLMs
 
 This repository contains the code associated with the following post:  
-https://github.com/Aza-Spearal/lesswrong-posts_temporary/blob/main/using_lcms_to_monitor_llms.pdf
+https://www.lesswrong.com/posts/f4yvPr8f6Rewy87jY/using-base-lcm-to-monitor-llms-1
 
 ---
 
